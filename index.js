@@ -7,12 +7,12 @@ const serveIndex = require('serve-index');
 
 const server = express();
 
-server.use('/ftp', express.static('views/ftp'), serveIndex('views/ftp', {'icons': true}));
+server.use('/views', serveIndex(path.join(__dirname, 'views')));
 
-// server.use(serveStatic('views/ftp', {'index': ['index.html', 'index.htm']}));
+//server.use(serveStatic('views/ftp', {'index': ['index.html', 'index.htm']}));
 
 // static route.
-server.use(express.static('views'));
+server.use('/views',express.static('views'));
 
 server.use(bodyParser.json());
 
